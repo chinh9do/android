@@ -1,0 +1,14 @@
+C:\Users\chinhdcy\Documents\training\training\BlogPost.Repository\bin\Debug\net6.0\Microsoft.Azure.Cosmos.ServiceInterop.dll
+C:\Users\chinhdcy\Documents\training\training\BlogPost.Repository\bin\Debug\net6.0\Cosmos.CRTCompat.dll
+C:\Users\chinhdcy\Documents\training\training\BlogPost.Repository\bin\Debug\net6.0\BlogPost.Repository.deps.json
+C:\Users\chinhdcy\Documents\training\training\BlogPost.Repository\bin\Debug\net6.0\BlogPost.Repository.dll
+C:\Users\chinhdcy\Documents\training\training\BlogPost.Repository\bin\Debug\net6.0\BlogPost.Repository.pdb
+C:\Users\chinhdcy\Documents\training\training\BlogPost.Repository\obj\Debug\net6.0\BlogPost.Repository.csproj.AssemblyReference.cache
+C:\Users\chinhdcy\Documents\training\training\BlogPost.Repository\obj\Debug\net6.0\BlogPost.Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\chinhdcy\Documents\training\training\BlogPost.Repository\obj\Debug\net6.0\BlogPost.Repository.AssemblyInfoInputs.cache
+C:\Users\chinhdcy\Documents\training\training\BlogPost.Repository\obj\Debug\net6.0\BlogPost.Repository.AssemblyInfo.cs
+C:\Users\chinhdcy\Documents\training\training\BlogPost.Repository\obj\Debug\net6.0\BlogPost.Repository.csproj.CoreCompileInputs.cache
+C:\Users\chinhdcy\Documents\training\training\BlogPost.Repository\obj\Debug\net6.0\BlogPost.Repository.dll
+C:\Users\chinhdcy\Documents\training\training\BlogPost.Repository\obj\Debug\net6.0\refint\BlogPost.Repository.dll
+C:\Users\chinhdcy\Documents\training\training\BlogPost.Repository\obj\Debug\net6.0\BlogPost.Repository.pdb
+C:\Users\chinhdcy\Documents\training\training\BlogPost.Repository\obj\Debug\net6.0\ref\BlogPost.Repository.dll
