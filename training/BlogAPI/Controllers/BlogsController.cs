@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlogAPI.Controllers;
-[Authorize]
+//[Authorize]
 [Route("api/[controller]")]
 [ApiController]
 public class BlogsController : ControllerBase
@@ -24,7 +24,6 @@ public class BlogsController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> List()
     {
-        Console.WriteLine("get blog");
         return Ok(await _blogService.GetAsync());
     }
 
@@ -37,13 +36,17 @@ public class BlogsController : ControllerBase
         return Ok(response);
     }
 
+    [HttpGet("userId={userId}")]
+    public async Task<IActionResult> GetByBlogId(string userId)
+    {
+        return Ok(await _blogService.GetByUserIdAsync(userId));
+    }
+
     // POST api/items
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] BlogModel item)
     {
-        Console.WriteLine("create {0}", item.Name);
         var result = await _blogService.AddBlogAsync(item);
-        Console.WriteLine("created");
         return CreatedAtAction(nameof(Create), result);
     }
 

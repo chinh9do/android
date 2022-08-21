@@ -12,6 +12,7 @@ public interface IBlogService : IBaseService<BlogModel>
     Task<List<PostModel>> GetAllPost();
     Task<BlogResponse> AddBlogAsync(BlogModel item);
     Task<BlogResponse> DeletePostByBlogIdAndPostId(string blogId, string postId);
+    Task<List<BlogModel>> GetByUserIdAsync(string userId);
 }
 
 public class BlogService : IBlogService
@@ -35,13 +36,11 @@ public class BlogService : IBlogService
             var blog = new Blog
             {
                 Name = item.Name,
-                CreateDate = DateTime.UtcNow,
-                UserId = "23123-231"
+                CreateDate = DateTime.UtcNow.AddMinutes(420),
+                UserId = item.UserId
             };
-            // item.CreateDate = DateTime.UtcNow;
-            // item.Id
+
             await _blogRepository.AddAsync(blog);
-            // await _blogRepository.AddAsync(_mapper.Map<Blog>(item));
 
             return new BlogResponse(_mapper.Map<BlogResponseModel>(item));
         }
@@ -90,20 +89,21 @@ public class BlogService : IBlogService
     {
         var blog = await _blogRepository.FindByIdAsync(id);
         var result = _mapper.Map<BlogResponseModel>(blog);
-        if (blog != null)
-        {
-            var posts = await _apiCall.GetAsync($"blogId={id}");
-            if (posts?.Count > 0)
-            {
-                result.Posts = posts;
-            }
-        }
+        //if (blog != null)
+        //{
+        //    var posts = await _apiCall.GetAsync($"blogId={id}");
+        //    if (posts?.Count > 0)
+        //    {
+        //        result.Posts = posts;
+        //    }
+        //}
 
         return result;
     }
 
     public async Task UpdateAsync(BlogModel item)
     {
+        item.CreateDate = DateTime.UtcNow.AddMinutes(420);
         await _blogRepository.UpdateAsync(_mapper.Map<Blog>(item));
     }
 
@@ -121,5 +121,10 @@ public class BlogService : IBlogService
             return new BlogResponse($"An error occurred when deleting the post: {ex.Message}");
         }
 
+    }
+
+    public async Task<List<BlogModel>> GetByUserIdAsync(string userId)
+    {
+        return _mapper.Map<List<BlogModel>>(await _blogRepository.FindByUserIdAsync(userId));
     }
 }

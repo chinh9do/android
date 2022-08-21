@@ -18,19 +18,17 @@ public class UsersController : ControllerBase
     [HttpPost("login")]
     public async Task<IActionResult> Authenticate([FromBody] UserModel model)
     {
-        Console.Write("start");
         if (model.UserName is null || model.Password is null)
         {
             return Unauthorized();
         }
- Console.WriteLine("begin login");
+
         var response = await _userService.Login(model);
 
         if (response is null)
         {
             return BadRequest("Invalid credentials");
         }
- Console.WriteLine("response");
         return Ok(response);
     }
 
@@ -38,7 +36,6 @@ public class UsersController : ControllerBase
     [Route("refresh-token")]
     public async Task<IActionResult> RefreshToken(TokenModel tokenModel)
     {
-        Console.WriteLine("refresh token ok");
         if (tokenModel is null)
         {
             return BadRequest("Invalid client request");
@@ -49,7 +46,7 @@ public class UsersController : ControllerBase
         {
             return BadRequest("Invalid access token or refresh token");
         }
-Console.WriteLine("refresh token done");
+
         return new ObjectResult(response);
     }
 

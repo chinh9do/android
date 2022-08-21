@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/training/.vs
+/training/BlogAPI/bin
+/training/BlogAPI/obj

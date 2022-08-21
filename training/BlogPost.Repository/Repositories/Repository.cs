@@ -46,7 +46,6 @@ public abstract class Repository<T> where T : BaseEntity
             results.AddRange(response.ToList());
         }
 
-        Console.WriteLine("get ok");
         return results;
     }
 

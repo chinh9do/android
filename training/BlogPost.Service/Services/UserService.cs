@@ -36,7 +36,6 @@ public class UserService : IUserService
 
     public async Task<AuthenticatedResponse> Login(UserModel model)
     {
-        Console.WriteLine("into login");
         try
         {
             var user = await _userRepository.Get(model.UserName, model.Password);
@@ -47,7 +46,6 @@ public class UserService : IUserService
                 return null;
             }
 
-            Console.WriteLine("done get user login");
             var token = GenerateAccessToken(user);
             var refreshToken = GenerateRefreshToken();
 
@@ -55,7 +53,6 @@ public class UserService : IUserService
             user.RefreshTokenExpiryTime = DateTime.Now.AddDays(_jwtSettings.RefreshTokenValidityInDays);
 
             await _userRepository.UpdateAsync(user);
-            Console.WriteLine("updated user {0}", refreshToken);
             return new AuthenticatedResponse
             {
                 AccessToken = token,
